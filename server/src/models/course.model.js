@@ -11,7 +11,7 @@ const courseSchema = new Schema(
       index: true,
     },
     code: {
-      type: Number,
+      type: String,
       required: true,
       unique: true,
       trim: true,
@@ -24,9 +24,8 @@ const courseSchema = new Schema(
     userId: {
       type: Schema.Types.ObjectId,
       ref: "User",
-      required: true,
     },
-    
+
   },
   { timestamps: true }
 );

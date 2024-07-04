@@ -28,7 +28,6 @@ const quizSchema = new Schema(
     courseId: {
       type: Schema.Types.ObjectId,
       ref: "Course",
-      required: true,
     },
   },
   { timestamps: true }
