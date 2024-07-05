@@ -1,0 +1,322 @@
+{
+	"info": {
+		"_postman_id": "cb0506d3-4a4d-44da-9e6a-322005b4adac",
+		"name": "QuizGenie",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31230968"
+	},
+	"item": [
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"msi\",\n    \"email\": \"msi.com\",\n    \"password\" : \"12345\",\n    \"fullname\" : \"saad iqbal\",\n    \"gender\" : \"Male\",\n    \"dob\" : \"2005-12-23\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{quizbase_URL}}/users/register",
+							"host": [
+								"{{quizbase_URL}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"saad\",\n    \"email\": \"saad@mail.com\",\n    \"password\" : \"12345\",\n    \"fullname\" : \"saad iqbal\",\n    \"gender\" : \"Male\",\n    \"dob\" : \"2005-12-23\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{quizbase_URL}}/users/login",
+							"host": [
+								"{{quizbase_URL}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "COURSE",
+			"item": [
+				{
+					"name": "Post a course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"J\",\n    \"code\": \"J\", \n    \"creditHours\" : 23, \n    \"userId\": \"6687a8fa8f1a87cfc8b59f75\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{quizbase_URL}}/courses/",
+							"host": [
+								"{{quizbase_URL}}"
+							],
+							"path": [
+								"courses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single course",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{quizbase_URL}}/courses/66865dfe954047b1f509df92",
+							"host": [
+								"{{quizbase_URL}}"
+							],
+							"path": [
+								"courses",
+								"66865dfe954047b1f509df92"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a course",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"SD\",\n    \"code\": \"SD1\", \n    \"creditHours\" : 23,\n    \"userId\": \"668556d384eff7fdd7b85bf4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{quizbase_URL}}/courses/66865dfe954047b1f509df92",
+							"host": [
+								"{{quizbase_URL}}"
+							],
+							"path": [
+								"courses",
+								"66865dfe954047b1f509df92"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a course",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{quizbase_URL}}/courses/66865dfe954047b1f509df92",
+							"host": [
+								"{{quizbase_URL}}"
+							],
+							"path": [
+								"courses",
+								"66865dfe954047b1f509df92"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{quizbase_URL}}/courses/",
+							"host": [
+								"{{quizbase_URL}}"
+							],
+							"path": [
+								"courses",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "QUIZ",
+			"item": [
+				{
+					"name": "Post a quiz",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"quiz 4\",\n    \"totalQuestion\": 15,\n    \"marks\": 10,\n    \"questionsJson\": {\n    \"fruit\": \"Apple\",\n    \"size\": \"Large\",\n    \"color\": \"Red\"\n},\n    \"courseId\":\"66865dfe954047b1f509df92\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{quizbase_URL}}/quizzes",
+							"host": [
+								"{{quizbase_URL}}"
+							],
+							"path": [
+								"quizzes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single quiz",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{quizbase_URL}}/quizzes/6687a3e5645b1834eeafe672",
+							"host": [
+								"{{quizbase_URL}}"
+							],
+							"path": [
+								"quizzes",
+								"6687a3e5645b1834eeafe672"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a quiz",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"quiz 1\",\n    \"totalQuestion\": 100,\n    \"marks\": 90,\n    \"questionsJson\": {\n    \"fruit\": \"orange\",\n    \"size\": \"Large\",\n    \"color\": \"Red\"\n},\n    \"courseId\":\"66865f5e954047b1f509df99\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{quizbase_URL}}/quizzes/6687a3e5645b1834eeafe672",
+							"host": [
+								"{{quizbase_URL}}"
+							],
+							"path": [
+								"quizzes",
+								"6687a3e5645b1834eeafe672"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a quiz",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{quizbase_URL}}/quizzes/6687a4cd2c47aca62b4ac4c0",
+							"host": [
+								"{{quizbase_URL}}"
+							],
+							"path": [
+								"quizzes",
+								"6687a4cd2c47aca62b4ac4c0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all quizzes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{quizbase_URL}}/quizzes",
+							"host": [
+								"{{quizbase_URL}}"
+							],
+							"path": [
+								"quizzes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "quizbase_URL",
+			"value": "http://localhost:8000/ap1/v1"
+		}
+	]
+}
