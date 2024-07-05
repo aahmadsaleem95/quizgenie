@@ -20,11 +20,11 @@ const quizSchema = new Schema(
       required: true,
       trim: true,
     },
-    // questionsJson: {
-    //   type: Object,
-    //   required: true,
-    //   trim: true,
-    // },
+    questionsJson: {
+      type: Object,
+      required: true,
+      trim: true,
+    },
     courseId: {
       type: Schema.Types.ObjectId,
       ref: "Course",

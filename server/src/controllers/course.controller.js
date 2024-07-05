@@ -1,6 +1,8 @@
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 import { Course } from "../models/course.model.js";
+import { Quiz } from "../models/quiz.model.js";
+import { User } from "../models/user.model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 
 const createCourse = asyncHandler(async (req, res) => {
@@ -16,6 +18,11 @@ const createCourse = asyncHandler(async (req, res) => {
   const existedCourse = await Course.findOne({ $or: [{ name }, { code }] });
   if (existedCourse) {
     throw new ApiError(409, "Course with this name or code already exists");
+  }
+
+  const user = await User.findById(userId);
+  if (!user) {
+    throw new ApiError(404, "User not found");
   }
 
   const course = await Course.create({ name, code, creditHours, userId });
@@ -42,6 +49,18 @@ const updateCourse = asyncHandler(async (req, res) => {
   const { id } = req.params;
   const { name, code, creditHours, userId } = req.body;
 
+  if ([name, code, userId].some((field) => field?.trim() === "")) {
+    throw new ApiError(400, "All fields are required");
+  }
+
+  if (!Number.isInteger(creditHours) || creditHours <= 0) {
+    throw new ApiError(400, "Credit hours must be a positive integer");
+  }
+  
+  const user = await User.findById(userId);
+  if (!user) {
+    throw new ApiError(404, "User not found");
+  }
   const updatedCourse = await Course.findByIdAndUpdate(
     id,
     { name, code, creditHours, userId },
@@ -51,6 +70,7 @@ const updateCourse = asyncHandler(async (req, res) => {
   if (!updatedCourse) {
     throw new ApiError(404, "Course not found");
   }
+  
 
   return res
     .status(200)
@@ -62,6 +82,7 @@ const updateCourse = asyncHandler(async (req, res) => {
 const deleteCourse = asyncHandler(async (req, res) => {
   const { id } = req.params;
 
+  await Quiz.deleteMany({ courseId: id });
   const deletedCourse = await Course.findByIdAndDelete(id);
 
   if (!deletedCourse) {
