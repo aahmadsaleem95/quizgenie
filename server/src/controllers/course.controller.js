@@ -29,7 +29,7 @@ const createCourse = asyncHandler(async (req, res) => {
 
   return res
     .status(201)
-    .json(new ApiResponse(201, { course }, "Course created successfully"));
+    .json(new ApiResponse(201, course, "Course created successfully"));
 });
 
 const getCourse = asyncHandler(async (req, res) => {
@@ -42,7 +42,7 @@ const getCourse = asyncHandler(async (req, res) => {
 
   return res
     .status(200)
-    .json(new ApiResponse(200, { course }, "Course retrieved successfully"));
+    .json(new ApiResponse(200, course, "Course retrieved successfully"));
 });
 
 const updateCourse = asyncHandler(async (req, res) => {
@@ -56,7 +56,7 @@ const updateCourse = asyncHandler(async (req, res) => {
   if (!Number.isInteger(creditHours) || creditHours <= 0) {
     throw new ApiError(400, "Credit hours must be a positive integer");
   }
-  
+
   const user = await User.findById(userId);
   if (!user) {
     throw new ApiError(404, "User not found");
@@ -70,7 +70,6 @@ const updateCourse = asyncHandler(async (req, res) => {
   if (!updatedCourse) {
     throw new ApiError(404, "Course not found");
   }
-  
 
   return res
     .status(200)
@@ -91,9 +90,7 @@ const deleteCourse = asyncHandler(async (req, res) => {
 
   return res
     .status(200)
-    .json(
-      new ApiResponse(200, "Course deleted successfully")
-    );
+    .json(new ApiResponse(200, "Course deleted successfully"));
 });
 
 const listCourses = asyncHandler(async (req, res) => {

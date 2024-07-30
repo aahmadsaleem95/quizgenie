@@ -1,25 +1,62 @@
-import logo from "./logo.svg";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
+import { Login } from "./Pages/Login";
+import { Home } from "./Pages/Home";
+import { Course } from "./Pages/Course";
+import { Quiz } from "./Pages/Quiz";
+import { Dashboard } from "./Pages/Dashboard";
+import { QuizStart } from "./Pages/QuizStart";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <ProtectedRoutes>
+              <Home PageComponent={Dashboard} />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/course"
+          element={
+            <ProtectedRoutes>
+              <Home PageComponent={Course} />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/quiz"
+          element={
+            <ProtectedRoutes>
+              <Home PageComponent={Quiz} />
+            </ProtectedRoutes>
+          }
+        />
+
+        <Route
+          path="/quiz/:id"
+          element={
+            <ProtectedRoutes>
+              <QuizStart />
+            </ProtectedRoutes>
+          }
+        />
+
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </>
   );
+}
+
+export function ProtectedRoutes(props) {
+  if (localStorage.getItem("user")) {
+    return props.children;
+  } else {
+    return <Navigate to="/login" />;
+  }
 }
 
 export default App;

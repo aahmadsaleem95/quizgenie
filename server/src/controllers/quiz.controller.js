@@ -19,11 +19,12 @@ const createQuiz = asyncHandler(async (req, res) => {
     throw new ApiError(400, "Marks must be a positive integer");
   }
 
-    if (typeof questionsJson !== "object" || questionsJson === null) {
-      throw new ApiError(400, "questionsJson must be a valid JSON object");
-    }
+  if (typeof questionsJson !== "object" || questionsJson === null) {
+    throw new ApiError(400, "questionsJson must be a valid JSON object");
+  }
 
-  const existedQuiz = await Quiz.findOne({ name });
+  const existedQuiz = await Quiz.findOne({ name, courseId });
+  console.log("Existed Quiz", existedQuiz);
   if (existedQuiz) {
     throw new ApiError(409, "Quiz with this name already exists");
   }
@@ -38,7 +39,7 @@ const createQuiz = asyncHandler(async (req, res) => {
     totalQuestion,
     marks,
     questionsJson,
-    courseId
+    courseId,
   });
 
   return res
@@ -55,7 +56,7 @@ const getQuiz = asyncHandler(async (req, res) => {
   }
   return res
     .status(200)
-    .json(new ApiResponse(200, { quiz }, "Quiz retrieved successfully"));
+    .json(new ApiResponse(200, quiz, "Quiz retrieved successfully"));
 });
 
 const updateQuiz = asyncHandler(async (req, res) => {
@@ -87,7 +88,6 @@ const updateQuiz = asyncHandler(async (req, res) => {
     { name, totalQuestion, marks, questionsJson, courseId },
     { new: true, runValidators: true }
   );
-  
 
   if (!updatedQuiz) {
     throw new ApiError(404, "Quiz not found");
