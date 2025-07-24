@@ -120,4 +120,22 @@ const listQuizzes = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, { quizzes }, "Quizzes retrieved successfully"));
 });
 
-export { createQuiz, getQuiz, updateQuiz, deleteQuiz, listQuizzes };
+const listQuizzesByCourseId = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const quizzes = await Quiz.find({
+    courseId: id,
+  }).populate("courseId");
+
+  return res
+    .status(200)
+    .json(new ApiResponse(200, { quizzes }, "Quizzes retrieved successfully"));
+});
+
+export {
+  createQuiz,
+  getQuiz,
+  updateQuiz,
+  deleteQuiz,
+  listQuizzes,
+  listQuizzesByCourseId,
+};

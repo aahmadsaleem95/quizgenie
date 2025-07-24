@@ -1,0 +1,295 @@
+{
+  "quizTitle": "Midterm 7",
+  "questions": [
+    {
+      "question": "Which of the following state is introduced while developing NFA for the closure of an FA?",
+      "options": [
+        "Simply an initial state",
+        "Final state",
+        "An initial state which should be final as well",
+        "An initial state with loop for all letters"
+      ],
+      "answer": "An initial state which should be final as well"
+    },
+    {
+      "question": "There ___________ be dead states in NFA.",
+      "options": ["may not", "must", "should not", "will"],
+      "answer": "may not"
+    },
+    {
+      "question": "Consider the following RE: a(a+b)b*. All of the following words are accepted except __________.",
+      "options": ["aab", "abb", "aa", "aba"],
+      "answer": "aba"
+    },
+    {
+      "question": "In drawing FA3(which is equal to FA1+FA2) a state will be declared final if _______.",
+      "options": [
+        "It corresponds to final states of both FA1 and FA2",
+        "It corresponds to final states of FA1",
+        "It corresponds to final states of FA2",
+        "It corresponds to any of the final states in FA1 or FA2"
+      ],
+      "answer": "It corresponds to any of the final states in FA1 or FA2"
+    },
+    {
+      "question": "An __________ can be considered to be an intermediate structure between Finite automaton and Transition Graph.",
+      "options": ["RE", "GTG", "NFA", "None of the given options"],
+      "answer": "GTG"
+    },
+    {
+      "question": "Statement 1: Null string is accepted in Moore Machine. Statement 2: There are more than 5-Tuples in the definition of Moore Machine. Choose the correct option:",
+      "options": [
+        "Statement 1 is true and Statement 2 is true",
+        "Statement 1 is true and Statement 2 is false",
+        "Statement 1 is false and Statement 2 is true",
+        "Statement 1 and Statement 2 both are false"
+      ],
+      "answer": "Statement 1 is true and Statement 2 is false"
+    },
+    {
+      "question": "If two RE's generate same language then these RE's are called ________.",
+      "options": ["Same RE", "Equal RE", "Similar RE", "Equivalent RE"],
+      "answer": "Equivalent RE"
+    },
+    {
+      "question": "If we have more than one accepting states or an accepting state with an outdegree, which of the following actions will be taken?",
+      "options": [
+        "Addition of new state",
+        "Removal of a state",
+        "Make the newly added state as final",
+        "More than one option is correct"
+      ],
+      "answer": "Addition of new state"
+    },
+    {
+      "question": "Which one of the following string is a part of EQUAL language?",
+      "options": ["aabbba", "babab", "ababab", "aabbaa"],
+      "answer": "ababab"
+    },
+    {
+      "question": "Moore Machine is an application of:",
+      "options": [
+        "Finite automata without input",
+        "Finite automata with output",
+        "Non-Finite automata with output",
+        "None of the mentioned"
+      ],
+      "answer": "Finite automata with output"
+    },
+    {
+      "question": "Which one of the following word is not accepted by the regular expression (a+b)*(aa)(a+b)*?",
+      "options": ["aaaa", "baaa", "aa", "bab"],
+      "answer": "bab"
+    },
+    {
+      "question": "Keeping in view the language of all strings ending with 'a', for which symbol we will take a loop on the final state of its transition diagram?",
+      "options": ["a", "b", "c", "d"],
+      "answer": "a"
+    },
+    {
+      "question": "Two machines are said to be equivalent if they print the ________ output string when the ________ input string is run on them.",
+      "options": [
+        "same, different",
+        "different, same",
+        "unique, different",
+        "same, same"
+      ],
+      "answer": "same, same"
+    },
+    {
+      "question": "If L1 and L2' are regular languages, L1 ∩ (L2' U L1')' will be",
+      "options": [
+        "regular",
+        "non-regular",
+        "may be regular",
+        "none of the mentioned"
+      ],
+      "answer": "regular"
+    },
+    {
+      "question": "In order to make NFA for the union of FA1 and FA2, the new initial state should be linked to:",
+      "options": [
+        "initial and final states of FA1 and FA2 respectively",
+        "initial states of both FAs",
+        "initial state of FA1 only",
+        "final and initial states of FA1 and FA2 respectively"
+      ],
+      "answer": "initial states of both FAs"
+    },
+    {
+      "question": "There _________ be a unique path for each valid string (called a word) in NFA.",
+      "options": ["must", "may not", "should not", "null"],
+      "answer": "may not"
+    },
+    {
+      "question": "In NFA, if null word(lambda) is allowed to be a label of an edge, then that NFA is called _______.",
+      "options": [
+        "NFA with one string",
+        "NFA with two strings",
+        "NFA without null string",
+        "NFA with null string"
+      ],
+      "answer": "NFA with null string"
+    },
+    {
+      "question": "An _______ can be considered to be an intermediate structure between Finite automaton and Transition Graph.",
+      "options": ["RE", "GTG", "NFA", "None of the given options"],
+      "answer": "GTG"
+    },
+    {
+      "question": "To examine whether a certain FA accepts any words, it is required to seek the paths ______ state.",
+      "options": [
+        "from initial to initial back",
+        "from final to back final",
+        "from final to initial",
+        "from initial to final"
+      ],
+      "answer": "from initial to final"
+    },
+    {
+      "question": "Identify the TRUE statement about following CFG.\nS -> SA|AB \nA -> CC \nB -> b\nC -> a",
+      "options": [
+        "The given CFG has 8 Nonterminals",
+        "The given CFG is in CNF",
+        "The given CFG is not in CNF",
+        "The given CFG has 8 terminals"
+      ],
+      "answer": "The given CFG is not in CNF"
+    },
+    {
+      "question": "_________ is an operation that takes out a letter from the top of the STACK.",
+      "options": ["PUSH", "WRITE", "APPEND", "POP"],
+      "answer": "POP"
+    },
+    {
+      "question": "In large FA with thousands of states and millions of directed edges, without an effective procedure it is ________ to find a path from initial to final state.",
+      "options": [
+        "may be good",
+        "always impossible",
+        "always easy",
+        "impossible"
+      ],
+      "answer": "impossible"
+    },
+    {
+      "question": "The CFG S -> aSa | bSb | a | b | * represents ___________ language.",
+      "options": ["EVEN-EVEN", "ODD-ODD", "EQUAL", "PALINDROME"],
+      "answer": "PALINDROME"
+    },
+    {
+      "question": "There is at least one production in CFG that has one ________ on its left side.",
+      "options": [
+        "Terminal",
+        "Unit production",
+        "Null production",
+        "Non-terminal"
+      ],
+      "answer": "Non-terminal"
+    },
+    {
+      "question": "Identify the TRUE statement about following CFG.\nS -> SA|AB \nA -> CC \nB -> b\nC -> a",
+      "options": [
+        "The given CFG has 8 Nonterminals",
+        "The given CFG is in CNF",
+        "The given CFG is not in CNF",
+        "The given CFG has 8 terminals"
+      ],
+      "answer": "The given CFG is not in CNF"
+    },
+    {
+      "question": "_______ states are called the half states.",
+      "options": [
+        "ACCEPT and REJECT",
+        "ACCEPT and WRITE",
+        "ACCEPT and START",
+        "ACCEPT and READ"
+      ],
+      "answer": "ACCEPT and REJECT"
+    },
+    {
+      "question": "Identify the TRUE statement",
+      "options": [
+        "Like TG, A PDA can also be non-deterministic",
+        "A PDA is non-deterministic, if there are more than one REJECT states in PDA",
+        "A PDA is non-deterministic, if there are more than one READ states in PDA",
+        "A PDA is never non-deterministic"
+      ],
+      "answer": "Like TG, A PDA can also be non-deterministic"
+    },
+    {
+      "question": "In conversion form of PDA, there is _________ accept state(s).",
+      "options": [
+        "At most one",
+        "More than one",
+        "At least one",
+        "Exactly one"
+      ],
+      "answer": "Exactly one"
+    },
+    {
+      "question": "The production of the form non-terminal --> one non-terminal is called the _________.",
+      "options": [
+        "NULL production",
+        "Terminal production",
+        "Unit production",
+        "Non-Terminal production"
+      ],
+      "answer": "Unit production"
+    },
+    {
+      "question": "Identify the correct statement from the following",
+      "options": [
+        "There does not exist a corresponding PDA for every CFG",
+        "For a CFG to convert to PDA, the CFG should have at least 5 Non-terminals",
+        "For a CFG to convert to PDA, the CFG should have at least 3 Non-terminals",
+        "There always exists a corresponding PDA for every CFG"
+      ],
+      "answer": "There always exists a corresponding PDA for every CFG"
+    },
+    {
+      "question": "Tape and Stack alphabets",
+      "options": [
+        "must be different",
+        "may be different",
+        "must be same",
+        "are same"
+      ],
+      "answer": "may be different"
+    },
+    {
+      "question": "If an FA has N states then it must accept the word of length",
+      "options": ["N+1", "N-1", "2N", "N"],
+      "answer": "N-1"
+    },
+    {
+      "question": "A _________ is the one for which every input string has a unique path through the machine",
+      "options": [
+        "non-deterministic PDA",
+        "deterministic PDA",
+        "PUSHDOWN store",
+        "Input Tape"
+      ],
+      "answer": "deterministic PDA"
+    },
+    {
+      "question": "In a CFG the non-terminals are denoted by _________",
+      "options": [
+        "Numbers",
+        "Capital letters",
+        "Small letters and numbers",
+        "Small letters"
+      ],
+      "answer": "Capital letters"
+    },
+    {
+      "question": "The derivation of a word w, generated by a CFG such that at each step a production is applied to the left-most non-terminal in the working string is said to be",
+      "options": [
+        "Right most derivation",
+        "Left most Terminal",
+        "Left most derivation",
+        "Right most Terminal"
+      ],
+      "answer": "Left most derivation"
+    }
+  ]
+}

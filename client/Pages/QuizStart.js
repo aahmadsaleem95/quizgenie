@@ -55,7 +55,10 @@ export const QuizStart = () => {
       <div className="app">
         <h1>{quizData?.quizTitle}</h1>
         <div className="question">
-          <h3>{quizData?.questions[currentQuestion].question}</h3>
+          <h3>
+            Q.No.{currentQuestion + 1}{" "}
+            {quizData?.questions[currentQuestion].question}
+          </h3>
           <ul className="options">
             {quizData?.questions[currentQuestion].options.map(
               (option, index) => (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Typography, Form, message } from "antd";
+import { Button, Typography, Form, message, Select } from "antd";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   createQuiz,
@@ -7,6 +7,7 @@ import {
   getQuizById,
   updateQuiz,
   deleteQuiz,
+  getAllQuizesByCourseId,
 } from "../services/Quiz";
 import { getAllCourses } from "../services/Course";
 import { AddRecord } from "../Components/AddRecord";
@@ -63,12 +64,18 @@ export const Quiz = ({ userInfo }) => {
   const [reload, setReload] = useState(false);
   const [selectedRecord, setSelectedRecord] = useState(null);
   const [allCourses, setAllCourses] = useState([]);
+  const [selectedCourse, setSelectedCourse] = useState("");
 
   useEffect(() => {
     setLoading(true);
     const getData = async () => {
       try {
-        const res = await getAllQuizes();
+        let res;
+        if (selectedCourse) {
+          res = await getAllQuizesByCourseId(selectedCourse);
+        } else {
+          res = await getAllQuizes();
+        }
         if (res?.status === 200) {
           setDataSource(res.data.data.quizzes);
         }
@@ -92,9 +99,10 @@ export const Quiz = ({ userInfo }) => {
     };
 
     getData();
-  }, [reload]);
+  }, [reload, selectedCourse]);
 
   useEffect(() => {
+    console.log("All courses: ", allCourses);
     setFormFields([
       {
         title: "Name",
@@ -157,21 +165,40 @@ export const Quiz = ({ userInfo }) => {
     <div className="TContent">
       <div className="THeader">
         <Typography.Title level={4}>Quiz Details</Typography.Title>
-        <Button
-          type="primary"
-          onClick={() => {
-            if (allCourses.length === 0) {
-              Toast.show({
-                content: "Create Courses First",
-                duration: 2000,
-              });
-            } else {
-              onAddRecord();
-            }
-          }}
-        >
-          Add
-        </Button>
+        <div>
+          <Select
+            placeholder={"Select a Course"}
+            style={{
+              width: 320,
+              marginRight: 20,
+            }}
+            onChange={(value) => {
+              console.log(value);
+              setSelectedCourse(value);
+            }}
+            // value={selectedCourse}
+            allowClear
+            options={allCourses.map((course) => ({
+              value: course._id,
+              label: `${course.code}-${course.name.toUpperCase()}`,
+            }))}
+          />
+          <Button
+            type="primary"
+            onClick={() => {
+              if (allCourses.length === 0) {
+                Toast.show({
+                  content: "Create Courses First",
+                  duration: 2000,
+                });
+              } else {
+                onAddRecord();
+              }
+            }}
+          >
+            Add
+          </Button>
+        </div>
       </div>
 
       <TableView

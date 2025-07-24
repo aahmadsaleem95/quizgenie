@@ -11,6 +11,13 @@ export const getAllQuizes = async () => {
   return axios.get(`${process.env.REACT_APP_BASE_URL}/quizzes`, config);
 };
 
+export const getAllQuizesByCourseId = async (id) => {
+  return axios.get(
+    `${process.env.REACT_APP_BASE_URL}/quizzes/course/${id}`,
+    config
+  );
+};
+
 export const getQuizById = async (id) => {
   return axios.get(`${process.env.REACT_APP_BASE_URL}/quizzes/${id}`, config);
 };
